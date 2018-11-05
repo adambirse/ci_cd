@@ -13,3 +13,4 @@ after_success:
 - ./gradlew test jacocoTestReport coveralls
 - cd docker
 - ./build_docker.sh
+- ./run_docker.sh
