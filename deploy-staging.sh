@@ -7,7 +7,13 @@ echo $GCLOUD_SERVICE_KEY_STG | base64 --decode -i > ${HOME}/gcloud-service-key.j
 gcloud auth activate-service-account --key-file ${HOME}/gcloud-service-key.json
 echo "Auth successful"
 
+cp ci_cd.yml ci_cd_staging.yml
 
+sed -i.bak "s/_PROJECT_NAME_STG_/$PROJECT_NAME_STG/g" ci_cd_staging.yml
+sed -i.bak "s/_DOCKER_IMAGE_NAME_/$DOCKER_IMAGE_NAME/g" ci_cd_staging.yml
+sed -i.bak "s/_TRAVIS_COMMIT_/$TRAVIS_COMMIT/g" ci_cd_staging.yml
+
+cat ci_cd_staging.yml
 
 echo $PROJECT_NAME_STG
 echo $CLUSTER_NAME_STG
@@ -37,7 +43,9 @@ echo "tag successful"
 kubectl config view
 kubectl config current-context
 
+kubectl create -f ci_cd_staging.yml
+
 
 #kubectl run ${KUBE_DEPLOYMENT_NAME} --image=gcr.io/${PROJECT_NAME_STG}/${DOCKER_IMAGE_NAME}:$TRAVIS_COMMIT --port=8080
 
-kubectl set image deployment/${KUBE_DEPLOYMENT_NAME} ${KUBE_DEPLOYMENT_CONTAINER_NAME}=gcr.io/${PROJECT_NAME_STG}/${DOCKER_IMAGE_NAME}:$TRAVIS_COMMIT
+#kubectl set image deployment/${KUBE_DEPLOYMENT_NAME} ${KUBE_DEPLOYMENT_CONTAINER_NAME}=gcr.io/${PROJECT_NAME_STG}/${DOCKER_IMAGE_NAME}:$TRAVIS_COMMIT
