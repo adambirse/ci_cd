@@ -30,7 +30,7 @@ before_install:
  - chmod +x gradlew
 
 install:
- - ./gradlew test jacocoTestReport coveralls
+ - ./gradlew clean build jacocoTestReport coveralls
  - cd docker
  - ./prepare_build_docker.sh
  - cd $TRAVIS_BUILD_DIR
