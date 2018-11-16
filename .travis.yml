@@ -25,10 +25,11 @@ env:
 language: java
 jdk:
  - oraclejdk8
+
 before_install:
  - chmod +x gradlew
 
- install:
+install:
  - ./gradlew test jacocoTestReport coveralls
  - cd docker
  - ./build_docker.sh
