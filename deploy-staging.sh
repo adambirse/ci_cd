@@ -1,10 +1,7 @@
 #!/bin/bash
 
 set -e
-echo pwd
-cd docker/build_context
-docker build -t gcr.io/${PROJECT_NAME_STG}/${DOCKER_IMAGE_NAME}:$TRAVIS_COMMIT .
-echo "docker build successful"
+pwd
 
 echo $GCLOUD_SERVICE_KEY_STG | base64 --decode -i > ${HOME}/gcloud-service-key.json
 gcloud auth activate-service-account --key-file ${HOME}/gcloud-service-key.json
