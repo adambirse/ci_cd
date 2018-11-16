@@ -32,7 +32,7 @@ after_success:
 - ./gradlew test jacocoTestReport coveralls
 - cd docker
 - ./build_docker.sh
-
+- cd $TRAVIS_BUILD_DIR
 
 
 before_deploy:
@@ -45,6 +45,7 @@ before_deploy:
 script:
 - cd $TRAVIS_BUILD_DIR
 - chmod +x ./deploy-staging.sh
+
 deploy:
 - provider: script
   script: ./deploy-staging.sh
