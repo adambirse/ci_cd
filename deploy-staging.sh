@@ -2,7 +2,7 @@
 
 set -e
 pwd
-
+echo "Deploy"
 echo $GCLOUD_SERVICE_KEY_STG | base64 --decode -i > ${HOME}/gcloud-service-key.json
 gcloud auth activate-service-account --key-file ${HOME}/gcloud-service-key.json
 echo "Auth successful"
