@@ -19,7 +19,7 @@ env:
   - CLUSTER_NAME_PRD=ci-cd-cluster
   - CLOUDSDK_COMPUTE_ZONE=europe-west2-a
   - DOCKER_IMAGE_NAME=ci_cd
-  - KUBE_DEPLOYMENT_NAME=ci_cd_deployment
+  - KUBE_DEPLOYMENT_NAME=testdeployment
   - KUBE_DEPLOYMENT_CONTAINER_NAME=ci_cd_container
 
 language: java
@@ -28,6 +28,7 @@ jdk:
 
 before_install:
  - chmod +x gradlew
+
 
 install:
  - ./gradlew clean build jacocoTestReport coveralls
