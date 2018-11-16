@@ -43,7 +43,7 @@ echo "tag successful"
 kubectl config view
 kubectl config current-context
 
-kubectl create -f ci_cd_staging.yml
+kubectl apply -f ci_cd_staging.yml
 
 
 #kubectl run ${KUBE_DEPLOYMENT_NAME} --image=gcr.io/${PROJECT_NAME_STG}/${DOCKER_IMAGE_NAME}:$TRAVIS_COMMIT --port=8080
