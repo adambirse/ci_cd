@@ -3,6 +3,25 @@ sudo: required
 services:
 - docker
 
+# Cache Gcloud SDK between commands
+cache:
+  directories:
+  - "$HOME/google-cloud-sdk/"
+
+
+# Set env vars
+env:
+  global:
+  - GOOGLE_APPLICATION_CREDENTIALS=~/gcloud-service-key.json
+  - PROJECT_NAME_STG=ci-cd-demo
+  - CLUSTER_NAME_STG=ci-cd-cluster
+  - PROJECT_NAME_PRD=ci-cd-demo
+  - CLUSTER_NAME_PRD=ci-cd-cluster
+  - CLOUDSDK_COMPUTE_ZONE=europe-west2
+  - DOCKER_IMAGE_NAME=ci_cd
+  - KUBE_DEPLOYMENT_NAME=ci_cd
+  - KUBE_DEPLOYMENT_CONTAINER_NAME=ci_cd
+
 language: java
 jdk:
  - oraclejdk8
@@ -11,6 +30,25 @@ before_install:
 
 after_success:
 - ./gradlew test jacocoTestReport coveralls
-- cd docker
-- ./build_docker.sh
-- ./run_docker.sh
+
+
+
+before_deploy:
+- if [ ! -d "$HOME/google-cloud-sdk/bin" ]; then rm -rf $HOME/google-cloud-sdk; export CLOUDSDK_CORE_DISABLE_PROMPTS=1; curl https://sdk.cloud.google.com | bash; fi
+- source /home/travis/google-cloud-sdk/path.bash.inc
+- gcloud --quiet version
+- gcloud --quiet components update
+- gcloud --quiet components beta update
+- gcloud --quiet components update kubectl
+
+deploy:
+- provider: script
+  script: ./deploy-staging.sh
+  skip_cleanup: true
+  on:
+    branch: ci-cd-cluster
+#- provider: script
+#  script: ./deploy-staging.sh
+#  skip_cleanup: true
+#  on:
+#    branch: master
