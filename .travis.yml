@@ -32,7 +32,7 @@ before_install:
 install:
  - ./gradlew test jacocoTestReport coveralls
  - cd docker
- - ./build_docker.sh
+ - ./prepare_build_docker.sh
  - cd $TRAVIS_BUILD_DIR
 
 script:
