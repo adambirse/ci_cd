@@ -26,7 +26,7 @@ cd $TRAVIS_BUILD_DIR
 
 echo "About to push to cloud"
 cd build/
-gcloud docker push gcr.io/${PROJECT_NAME_STG}/${DOCKER_IMAGE_NAME}
+gcloud docker -- push gcr.io/${PROJECT_NAME_STG}/${DOCKER_IMAGE_NAME}
 cd $TRAVIS_BUILD_DIR
 
 echo "push successful"
