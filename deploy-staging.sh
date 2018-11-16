@@ -1,6 +1,7 @@
 #!/bin/bash
 
 set -e
+echo pwd
 cd docker/build_context
 docker build -t gcr.io/${PROJECT_NAME_STG}/${DOCKER_IMAGE_NAME}:$TRAVIS_COMMIT .
 echo "docker build successful"

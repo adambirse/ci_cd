@@ -40,6 +40,9 @@ before_deploy:
 - gcloud --quiet components update
 - gcloud --quiet components update kubectl
 
+script:
+- cd $TRAVIS_BUILD_DIR
+- chmod +x ./deploy-staging.sh
 deploy:
 - provider: script
   script: ./deploy-staging.sh
