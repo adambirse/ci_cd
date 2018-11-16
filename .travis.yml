@@ -46,7 +46,7 @@ deploy:
   script: ./deploy-staging.sh
   skip_cleanup: true
   on:
-    branch: ci-cd-cluster
+    branch: ci-cd-test
 #- provider: script
 #  script: ./deploy-staging.sh
 #  skip_cleanup: true
