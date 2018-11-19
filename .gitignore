@@ -4,7 +4,7 @@
 
 *.jar
 *.bak
-*_staging.yml
+*_deployment.yml
 
 
 ### IntelliJ IDEA ###

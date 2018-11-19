@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: cicd
-        image: gcr.io/_PROJECT_NAME_STG_/_DOCKER_IMAGE_NAME_:_TRAVIS_COMMIT_
+        image: gcr.io/_PROJECT_NAME_/_DOCKER_IMAGE_NAME_:_TRAVIS_COMMIT_
         ports:
         - containerPort: 8080

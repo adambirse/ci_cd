@@ -31,7 +31,7 @@ install:
 
 script:
 - cd $TRAVIS_BUILD_DIR
-- chmod +x ./deploy-staging.sh
+- chmod +x ./deploy.sh
 
 
 before_deploy:
@@ -43,7 +43,7 @@ before_deploy:
 
 deploy:
 - provider: script
-  script: ./deploy-staging.sh
+  script: ./deploy.sh
   skip_cleanup: true
   on:
     branch: ci_cd_test
