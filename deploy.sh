@@ -36,7 +36,7 @@ cd build/
 gcloud docker -- push gcr.io/${PROJECT_NAME}/${DOCKER_IMAGE_NAME}
 cd $TRAVIS_BUILD_DIR
 
-yes | gcloud beta container images add-tag gcr.io/${PROJECT_NAME}/${DOCKER_IMAGE_NAME}:$TRAVIS_COMMIT gcr.io/${PROJECT_NAMEs}/${DOCKER_IMAGE_NAME}:latest
+yes | gcloud beta container images add-tag gcr.io/${PROJECT_NAME}/${DOCKER_IMAGE_NAME}:$TRAVIS_COMMIT gcr.io/${PROJECT_NAME}/${DOCKER_IMAGE_NAME}:latest
 
 }
 
