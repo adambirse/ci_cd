@@ -15,12 +15,8 @@ env:
   - GOOGLE_APPLICATION_CREDENTIALS=~/gcloud-service-key.json
   - PROJECT_NAME_STG=ci-cd-demo-222707
   - CLUSTER_NAME_STG=ci-cd-cluster
-  - PROJECT_NAME_PRD=ci-cd-demo-222707
-  - CLUSTER_NAME_PRD=ci-cd-cluster
   - CLOUDSDK_COMPUTE_ZONE=europe-west2-a
   - DOCKER_IMAGE_NAME=ci_cd
-  - KUBE_DEPLOYMENT_NAME=testdeployment
-  - KUBE_DEPLOYMENT_CONTAINER_NAME=ci_cd_container
 
 language: java
 jdk:
@@ -54,8 +50,3 @@ deploy:
   skip_cleanup: true
   on:
     branch: ci_cd_test
-#- provider: script
-#  script: ./deploy-staging.sh
-#  skip_cleanup: true
-#  on:
-#    branch: master
