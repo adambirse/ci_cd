@@ -13,9 +13,6 @@ cache:
 env:
   global:
   - GOOGLE_APPLICATION_CREDENTIALS=~/gcloud-service-key.json
-  - PROJECT_NAME_STG=ci-cd-demo-222707
-  - CLUSTER_NAME_STG=ci-cd-cluster
-  - CLOUDSDK_COMPUTE_ZONE=europe-west2-a
   - DOCKER_IMAGE_NAME=ci_cd
 
 language: java
