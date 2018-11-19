@@ -11,9 +11,6 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-/**
- * Created on 29/01/2018.
- */
 @RunWith(SpringRunner.class)
 @WebMvcTest(HelloWorldController.class)
 public class HelloWorldControllerTest {

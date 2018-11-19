@@ -27,7 +27,7 @@ before_install:
 
 
 install:
- - ./gradlew clean build jacocoTestReport coveralls
+ - ./gradlew clean build
  - cd docker
  - ./prepare_build_docker.sh
  - cd $TRAVIS_BUILD_DIR

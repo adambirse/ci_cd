@@ -10,7 +10,6 @@ repositories {
 
 apply plugin: 'java'
 apply plugin: 'idea'
-apply from: rootProject.file("gradle_support/coverage.gradle")
 apply from: rootProject.file("gradle_support/spring-boot.gradle")
 
 
