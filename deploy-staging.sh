@@ -29,7 +29,7 @@ gcloud --quiet container clusters get-credentials $CLUSTER_NAME_STG
 build_and_push() {
 
 cd $TRAVIS_BUILD_DIR/docker/build_context
-docker build -t gcr.io/${PROJECT_NAME_PRD}/${DOCKER_IMAGE_NAME}:$TRAVIS_COMMIT .
+docker build -t gcr.io/${PROJECT_NAME_STG}/${DOCKER_IMAGE_NAME}:$TRAVIS_COMMIT .
 cd $TRAVIS_BUILD_DIR
 
 cd build/
