@@ -46,4 +46,4 @@ deploy:
   script: ./deploy.sh
   skip_cleanup: true
   on:
-    branch: ci_cd_test
+    branch: master
