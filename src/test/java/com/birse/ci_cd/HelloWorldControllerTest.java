@@ -11,9 +11,6 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-/**
- * Created on 29/01/2018.
- */
 @RunWith(SpringRunner.class)
 @WebMvcTest(HelloWorldController.class)
 public class HelloWorldControllerTest {
@@ -23,8 +20,8 @@ public class HelloWorldControllerTest {
 
     @Test
     public void hello() throws Exception {
-        mockMvc.perform(get("/greeting")).
+        mockMvc.perform(get("/")).
                 andExpect(status().isOk()).
-                andExpect(content().string("Hello World"));
+                andExpect(content().string("Hello, World"));
     }
 }
