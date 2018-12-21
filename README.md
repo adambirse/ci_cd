@@ -21,7 +21,7 @@ a public github repo to a Kubernetes cluster hosted on Google Cloud.  It is depl
 4. Enter a Service account name such as continuous-integration-test.
 5. Under Role, select Project > Editor.
 6. Under Key type, select JSON.
-7. Click Create. The GCP Console downloads a new JSON file to your computer. The name of this file starts with your project ID.
+7. Click Create. The GCP Console downloads a new JSON file to your computer. The name of this file starts with your project ID. Make sure to store this file securely.  It cannot be downloaded again
 8.  Base64 encode this json for adding to Travis `base64 <json_secret.json>`
     
 ### Add Environment variables to Travis.
